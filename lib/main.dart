@@ -155,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     print('data: ' + result.points.toSet().toString());
     if (result.points.isNotEmpty) {
+      polylineCoordinates.clear();
       result.points.forEach((PointLatLng point) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
       });
@@ -166,6 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
     PolylineId id = PolylineId("poly");
     Polyline polyline = Polyline(
         polylineId: id, color: Colors.red, points: polylineCoordinates);
+    // polylines={};
     polylines[id] = polyline;
     setState(() {
       loading = false;
